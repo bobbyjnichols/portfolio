@@ -8,8 +8,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 });
 
-const ExtractTextPluginConfig = new ExtractTextPlugin('style.css', {
-  allChunks: true
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
 });
 
 module.exports = {
@@ -22,7 +23,7 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    ExtractTextPluginConfig
+    extractSass
   ],
   module: {
     rules: [
@@ -37,11 +38,13 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        use: [
-          {loader: "style-loader"},
-          {loader: "css-loader"},
-          {loader: "sass-loader", options: {sourceMap: true}}
-        ]
+        use: extractSass.extract({
+          use: [
+            {loader: "css-loader"},
+            {loader: "sass-loader"}
+          ],
+          fallback: "style-loader"
+        })
       }
     ]
   },
