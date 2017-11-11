@@ -26,8 +26,7 @@ module.exports = {
     extractSass
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         use: {loader: 'babel-loader'},
         exclude: /node_modules/
@@ -40,8 +39,9 @@ module.exports = {
         test: /\.sass$/,
         use: extractSass.extract({
           use: [
-            {loader: "css-loader"},
-            {loader: "sass-loader"}
+            {loader: "css-loader", options: {sourceMap: true}},
+            {loader: "postcss-loader", options: {sourceMap: true}},
+            {loader: "sass-loader", options: {sourceMap: true}}
           ],
           fallback: "style-loader"
         })
