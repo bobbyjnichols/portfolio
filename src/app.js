@@ -1,13 +1,24 @@
 import './style/global.sass';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Logo from './components/Logo/Logo';
+import Header from './components/Header/Header';
+import Home from "./routes/Home/Home";
+import GitHub from "./routes/GitHub/GitHub";
+import {
+  Route,
+  HashRouter
+} from "react-router-dom";
+
 
 ReactDOM.render(
    <div id={root}>
-     <Logo />
-     <h4>test 2</h4>
-     <p>test 3</p>
+     <HashRouter>
+       <div className="main-content">
+         <Route path="/" component={Header}/>
+         <Route exact path="/" component={Home}/>
+         <Route path="/github" component={GitHub}/>
+       </div>
+     </HashRouter>
    </div>,
     document.getElementById('root')
 );
