@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "../../components/Navigation/Navigation";
+import "./Home.sass"
 
 class Home extends Component {
   constructor() {
@@ -9,7 +10,9 @@ class Home extends Component {
 
   render() {
     return (
-      <Navigation type="home"/>
+      <div className="Home">
+        <Navigation type="home"/>
+      </div>
     );
   }
 }

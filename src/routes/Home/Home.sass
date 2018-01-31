@@ -1,0 +1,27 @@
+@import "../../style/colors"
+@import "../../style/variables"
+
+.Home
+  margin-top: calc(50vh - 5em)
+  padding: 2.5em 0 0
+
+  .Navigation ul
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
+    li
+      padding: 0.5rem
+      font-size: 1.5em
+      transform: translateX(0)
+      transition: 0.25s transform $elastic
+
+      a
+        color: #404040
+        transition: 0.25s color ease-in-out
+
+      &:hover
+        transform: translateX(1em)
+
+        a
+          color: $violet
