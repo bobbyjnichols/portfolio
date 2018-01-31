@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class GitHub extends Component {
+  constructor() {
+    super();
+    window.document.title = "Robert Nichols - GitHub"
+  }
 
   render() {
     return (
