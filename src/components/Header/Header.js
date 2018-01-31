@@ -3,14 +3,19 @@ import './Header.sass'
 import Navigation from "../Navigation/Navigation";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isHome: props.location.pathname === '/'};
+  }
+
   componentWillReceiveProps(props) {
-    this.isHome = props.location.pathname === '/';
+    this.setState({isHome: props.location.pathname === '/'});
   }
 
   render() {
     return (
-      <div className={this.isHome ? 'header large':'header'}>
-        {!this.isHome && <Navigation type="header"/>}
+      <div className={this.state.isHome ? 'header large':'header'}>
+        {!this.state.isHome && <Navigation type="header"/>}
       </div>
     );
   }
