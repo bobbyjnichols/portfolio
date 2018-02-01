@@ -1,9 +1,17 @@
 @import '../../style/variables'
 
 .Logo
-  .first
-    color: #234567
+  font-size: 8vw
+  display: flex
+  flex-direction: row
+  position: absolute
+  bottom: 0
+  margin: 0
+  color: #FFFFFF
+
+  @media screen and (min-width: $md)
+    font-size: 5em
+
+  span
     font-family: $bigJohn
-  .last
-    color: #454655
-    font-family: $slimJoe
+    line-height: 65%

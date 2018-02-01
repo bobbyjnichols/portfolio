@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './Header.sass'
 import Navigation from "../Navigation/Navigation";
+import Logo from "../Logo/Logo";
 
 class Header extends Component {
   constructor(props) {
@@ -15,7 +16,10 @@ class Header extends Component {
   render() {
     return (
       <div className={this.state.isHome ? 'header large':'header'}>
-        {!this.state.isHome && <Navigation type="header"/>}
+        <div className="container">
+          <Logo/>
+          {!this.state.isHome && <Navigation type="header"/>}
+        </div>
       </div>
     );
   }

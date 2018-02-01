@@ -1,11 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import './Logo.sass'
 
-class Logo extends React.Component {
+class Logo extends Component {
+  constructor() {
+    super();
+    this.text = "Robert Nichols"
+  }
+
   render() {
     return <h1 className='Logo'>
-      <span className='first'>Robert</span>
-      <span className='last'>Nichols</span>
+      {this.text.split('').map((character, i) => <span key={i}>{character}</span>)}
     </h1>;
   }
 }
