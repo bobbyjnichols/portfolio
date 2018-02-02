@@ -15,3 +15,14 @@
   span
     font-family: $bigJohn
     line-height: 65%
+    opacity: 1
+    max-width: 1em
+    min-width: 0.25em
+    transition: 0.5s opacity ease-in-out, 0.5s max-width $elastic, 0.5s min-width $elastic
+
+  &.reduced
+    span:not(.initial-char)
+      max-width: 0
+      min-width: 0
+      opacity: 0
+

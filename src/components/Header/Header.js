@@ -17,7 +17,7 @@ class Header extends Component {
     return (
       <div className={this.state.isHome ? 'header large':'header'}>
         <div className="container">
-          <Logo/>
+          <Logo isReduced={!this.state.isHome}/>
           {!this.state.isHome && <Navigation type="header"/>}
         </div>
       </div>
