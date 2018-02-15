@@ -1,0 +1,24 @@
+@import "../../style/colors"
+
+.LanguageChip
+  flex-direction: row
+  align-items: center
+
+  p
+    margin: 0
+
+  .color-identifier
+    width: 1em
+    height: 1em
+    border-radius: 50%
+    margin-right: 0.5em
+    background-color: $violet
+
+    &.java
+      background-color: $blue
+    &.javascript
+      background-color: $yellow
+    &.css
+      background-color: $purple
+    &.groovy
+      background-color: $green
