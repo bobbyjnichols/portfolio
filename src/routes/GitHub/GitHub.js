@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import GitHub_Home from "./Home/GitHub_Home";
 import GitHub_Repos from "./Repos/GitHub_Repos";
-import axios from "axios";
+import "./GitHub.sass"
 
 class GitHub extends Component {
   constructor() {
@@ -14,18 +14,22 @@ class GitHub extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${this.api}/users/${this.username}`).then(response => {
-      this.setState({user:response.data});
+    fetch(`${this.api}/users/${this.username}`).then(response => {
+      response.json().then(user => {
+        this.setState({user});
+      });
     });
-    axios.get(`${this.api}/users/${this.username}/repos`).then(response => {
-      this.setState({repos:response.data});
-      console.log(this.state.repos);
+    fetch(`${this.api}/users/${this.username}/repos`).then(response => {
+      response.json().then(repos => {
+        this.setState({repos});
+        console.log(this.state.repos);
+      });
     });
   }
 
   render() {
     return (
-      <div className={"HelloWorld"}>
+      <div className={"GitHub"}>
         <Route exact path="/github" render={()=><GitHub_Home user={this.state.user}/>}/>
         <Route exact path="/github/repos" render={()=><GitHub_Repos repos={this.state.repos}/>}/>
       </div>
