@@ -6,7 +6,9 @@ class Repository extends Component {
   render() {
     return (
       <div className="Repository">
-        <h4>{this.props.repository.name}</h4>
+        <a href={this.props.repository.html_url}>
+          <h4>{this.props.repository.name}</h4>
+        </a>
         <p>{this.props.repository.description}</p>
         <LanguageChip language={this.props.repository.language}/>
       </div>
