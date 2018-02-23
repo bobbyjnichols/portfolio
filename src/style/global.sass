@@ -1,20 +1,26 @@
 @import 'fonts'
 @import 'variables'
+@import 'colors'
+
+html
+  font-family: "Proxima Nova", sans-serif
 
 body
   margin: 0
 
+h1, h2, h3, h4, h5, h6
+  font-variant: small-caps
+  color: #000000
+
 h1, h2, h3
-  font-family: $bigJohn
   font-weight: 900
 
 h4, h5, h6
-  font-family: $slimJoe
   font-weight: 600
 
 div, span, p
-  font-family: $raleway
   display: flex
+  color: $dark-grey
 
 [data-reactroot]
   width: 100%
