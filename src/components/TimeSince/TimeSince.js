@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import moment from "moment";
 
-class FormattedDate extends Component {
+class TimeSince extends Component {
 
   constructor() {
     super();
@@ -9,12 +9,11 @@ class FormattedDate extends Component {
   }
 
   componentWillMount() {
-    let date = new Date(this.props.date);
-    this.setState({date: moment(date).fromNow()});
+    this.setState({date: moment(this.props.date).fromNow()});
   }
 
   render() {
     return <Fragment>{this.state.date}</Fragment>
   }
 }
-export default FormattedDate
+export default TimeSince

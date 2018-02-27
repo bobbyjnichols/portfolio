@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LanguageChip from "../LanguageChip/LanguageChip";
-import FormattedDate from "../FormattedDate/FormattedDate";
+import TimeSince from "../TimeSince/TimeSince";
 import "./Repository.sass"
 
 class Repository extends Component {
@@ -13,7 +13,7 @@ class Repository extends Component {
         <p>{this.props.repository.description}</p>
         <div className="meta">
           <LanguageChip language={this.props.repository.language}/>
-          <FormattedDate date={this.props.repository.updated_at}/>
+          <TimeSince date={this.props.repository.pushed_at}/>
         </div>
       </div>
     );
