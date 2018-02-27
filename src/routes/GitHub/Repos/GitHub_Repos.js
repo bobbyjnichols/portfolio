@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Repository from '../../../components/Repository/Repostiory'
+import GitHubObject from '../../../components/GitHubObject/GitHubObject'
 import "./GitHub_Repos.sass"
 
 class GitHub_Repos extends Component {
@@ -10,7 +10,11 @@ class GitHub_Repos extends Component {
         <ul>
           {this.props.repos !== null && this.props.repos.map((repo,i) =>
             <li key={i}>
-              <Repository repository={repo}/>
+              <GitHubObject name={repo.name}
+                            url={repo.html_url}
+                            description={repo.description}
+                            language={repo.language}
+                            date={repo.pushed_at}/>
             </li>)}
         </ul>
       </div>
