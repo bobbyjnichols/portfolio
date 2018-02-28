@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Heading from "../../../components/Heading/Heading";
 import GitHubObject from "../../../components/GitHubObject/GitHubObject";
 import "./GitHub_Gists.sass";
 
@@ -7,7 +8,6 @@ class GitHub_Gists extends Component {
     super();
     this.state = {gists:null};
     this.identifyMainFile = this.identifyMainFile.bind(this);
-    this.renderObject = this.renderObject.bind(this);
   }
 
   componentDidMount() {
@@ -28,26 +28,22 @@ class GitHub_Gists extends Component {
     return mainFile;
   }
 
-  renderObject(gist) {
-    let mainFile = this.identifyMainFile(gist.files);
-    return (
-      <GitHubObject name={mainFile.name}
-                    description={gist.description}
-                    url={gist.html_url}
-                    language={mainFile.language}
-                    date={gist.updated_at}/>
-    );
-  }
-
   render() {
     return (
       <div className="GitHub_Gists">
-        <h1>GitHub Gists</h1>
+        <Heading>GitHub Gists</Heading>
         <ul>
-          {this.state.gists !== null && this.state.gists.map((gist,i) =>
-            <li key={i}>
-              {this.renderObject(gist)}
-            </li>)}
+          {this.state.gists !== null && this.state.gists.map((gist,i) => {
+            let mainFile = this.identifyMainFile(gist.files);
+            return (
+              <li key={i}>
+                <GitHubObject name={mainFile.name}
+                              description={gist.description}
+                              url={gist.html_url}
+                              language={mainFile.language}
+                              date={gist.updated_at}/>
+              </li>)
+          })}
         </ul>
       </div>
     );
