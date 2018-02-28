@@ -13,7 +13,7 @@ class GitHubObject extends Component {
         <p>{this.props.description}</p>
         <div className="meta">
           <LanguageChip language={this.props.language}/>
-          <TimeSince date={this.props.updated}/>
+          {this.props.date && <TimeSince date={this.props.date}/>}
         </div>
       </div>
     );
