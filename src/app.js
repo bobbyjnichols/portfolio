@@ -4,10 +4,7 @@ import ReactDOM from 'react-dom';
 import Header from './components/Header/Header';
 import Home from "./routes/Home/Home";
 import GitHub from "./routes/GitHub/GitHub";
-import {
-  Route,
-  HashRouter
-} from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 
 
 ReactDOM.render(

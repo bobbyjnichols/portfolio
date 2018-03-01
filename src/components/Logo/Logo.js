@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {NavLink} from "react-router-dom";
 import './Logo.sass'
 
 class Logo extends Component {
@@ -8,10 +9,14 @@ class Logo extends Component {
   }
 
   render() {
-    return <h1 className={this.props.isReduced ? "Logo reduced" : "Logo"}>
-      {this.text.split('').map(
-        (c, i) => <span key={i} className={c === c.toLocaleUpperCase() && c !== ' ' ? "initial-char" : null}>{c}</span>)}
-    </h1>;
+    return (
+      <NavLink to="/">
+        <h1 className={this.props.isReduced ? "Logo reduced" : "Logo"}>
+          {this.text.split('').map(
+            (c, i) => <span key={i} className={c === c.toLocaleUpperCase() && c !== ' ' ? "initial-char" : null}>{c}</span>)}
+        </h1>
+      </NavLink>
+    );
   }
 }
 

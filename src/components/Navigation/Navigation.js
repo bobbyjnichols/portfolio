@@ -1,18 +1,19 @@
 import './Navigation.sass';
-import React, { Component } from "react";
-import {NavLink, HashRouter} from "react-router-dom";
+import React, { Component, Fragment } from "react";
+import {NavLink, withRouter} from "react-router-dom";
 
 class Navigation extends Component {
   render() {
-    return <div className='Navigation'>
-      <HashRouter>
-        <ul className={`${this.props.type}-navigation`}>
-          <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/github">GitHub</NavLink></li>
+    return <Fragment>
+        <ul className={`${this.props.type}-navigation Navigation`}>
+          {this.props.routes.map((route, i) =>
+            <li key={i} className={this.props.location.pathname === route.path ? "active" : ""}>
+              <NavLink to={route.path}>{route.name}</NavLink>
+            </li>
+          )}
         </ul>
-      </HashRouter>
-    </div>;
+    </Fragment>;
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);

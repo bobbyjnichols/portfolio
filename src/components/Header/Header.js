@@ -18,7 +18,14 @@ class Header extends Component {
       <div className={this.state.isHome ? 'header large':'header'}>
         <div className="container">
           <Logo isReduced={!this.state.isHome}/>
-          {!this.state.isHome && <Navigation type="header"/>}
+          {!this.state.isHome && <Navigation type="header" routes={[{
+              name: "GitHub",
+              path: "/github"
+            },{
+              name: "Stack Overflow",
+              path: "/stackoverflow"
+            }]
+          }/>}
         </div>
       </div>
     );

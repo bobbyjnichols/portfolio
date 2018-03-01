@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Heading from "../../../components/Heading/Heading";
 import GitHubObject from "../../../components/GitHubObject/GitHubObject";
 import "./GitHub_Gists.sass";
 
@@ -31,7 +30,6 @@ class GitHub_Gists extends Component {
   render() {
     return (
       <div className="GitHub_Gists">
-        <Heading>GitHub Gists</Heading>
         <ul>
           {this.state.gists !== null && this.state.gists.map((gist,i) => {
             let mainFile = this.identifyMainFile(gist.files);

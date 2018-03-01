@@ -11,7 +11,14 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <Navigation type="home"/>
+        <Navigation type="home" routes={[{
+          name: "GitHub",
+          path: "/github"
+        },{
+          name: "Stack Overflow",
+          path: "/stackoverflow"
+        }]
+        }/>
       </div>
     );
   }
