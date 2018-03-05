@@ -12,21 +12,7 @@ class GitHub extends Component {
     window.document.title = "Robert Nichols - GitHub";
     this.username = "bobbyjnichols";
     this.api = "https://api.github.com";
-    this.state = {user:null, repos:null};
-  }
-
-  componentDidMount() {
-    fetch(`${this.api}/users/${this.username}`).then(response => {
-      response.json().then(user => {
-        this.setState({user});
-      });
-    });
-    fetch(`${this.api}/users/${this.username}/repos`).then(response => {
-      response.json().then(repos => {
-        this.setState({repos});
-        console.log(this.state.repos);
-      });
-    });
+    this.state = {repos:null};
   }
 
   render() {
@@ -43,8 +29,8 @@ class GitHub extends Component {
             path: "/github/gists"
           }]
         }/>
-        <Route exact path="/github" render={()=><GitHub_Home user={this.state.user}/>}/>
-        <Route exact path="/github/repos" render={()=><GitHub_Repos repos={this.state.repos}/>}/>
+        <Route exact path="/github" render={()=><GitHub_Home api={this.api} user={this.username}/>}/>
+        <Route exact path="/github/repos" render={()=><GitHub_Repos api={this.api} user={this.username}/>}/>
         <Route exact path="/github/gists" render={()=><GitHub_Gists api={this.api} user={this.username}/>}/>
       </div>
     );

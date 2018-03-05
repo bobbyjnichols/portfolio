@@ -3,11 +3,16 @@ import React, { Component } from "react";
 class GitHub_Home extends Component {
   constructor() {
     super();
-    window.document.title = "Robert Nichols - GitHub"
+    this.state = {user:null};
+    window.document.title = "Robert Nichols - GitHub";
   }
 
-  componentWillReceiveProps(props) {
-    console.log(props);
+  componentDidMount() {
+    fetch(`${this.props.api}/users/${this.props.user}`).then(response => {
+      response.json().then(user => {
+        this.setState({user});
+      });
+    });
   }
 
   render() {
