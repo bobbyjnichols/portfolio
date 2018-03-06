@@ -9,20 +9,35 @@
   width: 100vw
   background-color: $violet
   transition: 0.5s height $elastic
+  justify-content: flex-end
 
   &.large
     height: 50vh
 
   .container
     width: $md
-    height: 100%
+    height: 3.5em
     margin: 0 auto
     flex-direction: row
 
-    .Navigation
-      ul
-        margin-left: 8em
+    ul.Navigation
+      margin-left: 10em
+      justify-content: flex-start
 
       a
         color: #FFFFFF
+        font-size: 1.25em
+        font-weight: 300
 
+        li
+          transform: translateY(0)
+          transition: 0.25s transform $elastic
+
+          &:hover
+            transform: translateY(-0.5em)
+
+        &[aria-current="true"]
+          color: $yellow
+
+          li:hover
+            transform: translateY(0)

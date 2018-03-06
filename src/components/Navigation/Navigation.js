@@ -7,9 +7,9 @@ class Navigation extends Component {
     return <Fragment>
         <ul className={`${this.props.type}-navigation Navigation`}>
           {this.props.routes.map((route, i) =>
-            <li key={i} className={this.props.location.pathname === route.path ? "active" : ""}>
-              <NavLink to={route.path}>{route.name}</NavLink>
-            </li>
+            <NavLink to={route.path} key={i}>
+              <li>{route.name}</li>
+            </NavLink>
           )}
         </ul>
     </Fragment>;

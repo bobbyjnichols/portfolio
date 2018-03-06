@@ -11,18 +11,18 @@
     align-items: flex-start
     padding: 0 2em
 
-    li
-      padding: 0.5rem 0
-      font-size: 1.5em
-      transform: translateX(0)
-      transition: 0.25s transform $elastic
-
-      a
-        color: $violet
-        transition: 0.25s color ease-in-out
+    a
+      color: $violet
+      transition: 0.25s color ease-in-out
 
       &:hover
-        transform: translateX(1em)
+        color: $yellow
 
-        a
-          color: $yellow
+        li
+          transform: translateX(1em)
+
+      li
+        padding: 0.5rem 0
+        font-size: 1.5em
+        transform: translateX(0)
+        transition: 0.25s transform $elastic

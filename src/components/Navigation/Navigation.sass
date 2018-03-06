@@ -11,23 +11,23 @@ ul.Navigation
   list-style: none
   width: 100%
 
-  li
-    padding: 1rem
+  a
+    text-decoration: none
 
-    a
-      text-decoration: none
+    li
+      padding: 1rem
 
   &.sub-navigation
     border-bottom: 1px solid $light-grey
 
-    li
-      border-bottom: 0 solid $yellow
-      transition: border-bottom-width ease 0.25s, padding-bottom ease 0.25s, margin-bottom ease 0.25s
+    a
+      color: $dark-grey
 
-      &.active
-        padding: 1rem 1rem calc(1rem - #{$indicator-size} + 1px)
-        border-bottom: $indicator-size solid $yellow
-        margin-bottom: -1px
+      li
+        border-bottom: 0 solid $yellow
+        transition: border-bottom-width ease 0.25s, padding-bottom ease 0.25s, margin-bottom ease 0.25s
 
-      a
-        color: $dark-grey
+      &[aria-current="true"] li
+          padding: 1rem 1rem calc(1rem - #{$indicator-size} + 1px)
+          border-bottom: $indicator-size solid $yellow
+          margin-bottom: -1px

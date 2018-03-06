@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Navigation from "../../components/Navigation/Navigation";
 import GitHub_Home from "./Home/GitHub_Home";
 import GitHub_Repos from "./Repos/GitHub_Repos";
@@ -20,7 +20,7 @@ class GitHub extends Component {
       <div className={"GitHub"}>
         <Navigation type="sub" routes={[{
             name: "Overview",
-            path: "/github"
+            path: "/github/overview"
           },{
             name: "Repositories",
             path: "/github/repos"
@@ -29,7 +29,8 @@ class GitHub extends Component {
             path: "/github/gists"
           }]
         }/>
-        <Route exact path="/github" render={()=><GitHub_Home api={this.api} user={this.username}/>}/>
+        <Route exact path="/github" render={()=><Redirect to="/github/overview"/>}/>
+        <Route exact path="/github/overview" render={()=><GitHub_Home api={this.api} user={this.username}/>}/>
         <Route exact path="/github/repos" render={()=><GitHub_Repos api={this.api} user={this.username}/>}/>
         <Route exact path="/github/gists" render={()=><GitHub_Gists api={this.api} user={this.username}/>}/>
       </div>
